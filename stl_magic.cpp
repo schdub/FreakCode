@@ -211,3 +211,17 @@ public:
 private:
     ListT data_;
 };
+
+// Напишите метафункцию Fib<N>, которая вычисляет N-ое число Фибоначчи.
+template <int n>
+struct Fib {
+	static constexpr int value = Fib<n-1>::value + Fib<n-2>::value;
+};
+template<>
+struct Fib<0> {
+	static constexpr int value = 0;
+};
+template<>
+struct Fib<1> {
+	static constexpr int value = 1;
+};
